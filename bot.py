@@ -70,7 +70,7 @@ class ModmailBot(commands.Bot):
 
         intents = discord.Intents.all()
         if not self.config["enable_presence_intent"]:
-            intents.presences = False
+            intents.presences = True
 
         super().__init__(command_prefix=None, intents=intents)  # implemented in `get_prefix`
         self.session = None
