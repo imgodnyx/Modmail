@@ -28,7 +28,7 @@ class ConfigManager:
         "main_category_id": None,
         "fallback_category_id": None,
         "prefix": "?",
-        "mention": "@1325123418571407443",
+        "mention": "@everyone",
         "main_color": str(discord.Color.blurple()),
         "error_color": str(discord.Color.red()),
         "user_typing": False,
