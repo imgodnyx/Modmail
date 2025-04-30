@@ -1,19 +1,19 @@
 import os
 import discord
-from discord.ext import commands
-from dotenv import load_dotenv
 
-# Load environment variables from .env
-load_dotenv()
-TOKEN = os.getenv("TOKEN")
+# Read token directly from environment
+TOKEN = os.environ["TOKEN"]
 
+# Set up Discord client
 intents = discord.Intents.default()
-bot = commands.Bot(command_prefix="!", intents=intents)
+client = discord.Client(intents=intents)
 
-@bot.event
+@client.event
 async def on_ready():
-    print(f"✅ Logged in as {bot.user}")
-    activity = discord.Activity(type=discord.ActivityType.watching, name="for your DMs")
-    await bot.change_presence(status=discord.Status.online, activity=activity)
+    print(f"✅ Logged in as {client.user}")
+    await client.change_presence(
+        activity=discord.Activity(type=discord.ActivityType.watching, name="for your DMs")
+    )
 
-bot.run(TOKEN)
+client.run(TOKEN)
+
