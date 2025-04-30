@@ -1832,19 +1832,6 @@ def main():
     bot = ModmailBot()
     bot.run()
 
-# Function to set the custom status
-async def set_status():
-    await client.change_presence(
-        activity=discord.Activity(type=discord.ActivityType.watching, name="for your DMs")
-    )
-    print("Bot is now watching for your DMs")
-
-@client.event
-async def on_ready():
-    print(f'Logged in as {client.user}')
-    await set_status()  # Call the function to change status once bot is ready
-
-
 
 if __name__ == "__main__":
     main()
